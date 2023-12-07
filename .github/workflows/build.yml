@@ -26,7 +26,7 @@ jobs:
         env:
           CLUSTER_RESOURCE_GROUP_NAME: ${{ secrets.CLUSTER_RESOURCE_GROUP_NAME }}
           CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
-      - run: |
+        run: |
             az aks get-credentials \
             --resource-group $CLUSTER_RESOURCE_GROUP_NAME \
             --name $CLUSTER_NAME \
@@ -34,4 +34,4 @@ jobs:
       - name: Deploy application
         env:
           ACR_NAME: ${{ secrets.ACR_NAME }}
-      - run: make deploy
+        run: make deploy
