@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
+    steps
       - uses: actions/checkout@v2
 
       - uses: azure/docker-login@v1
@@ -21,3 +21,17 @@ jobs:
       - run: |
           docker build . -t acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
           docker push acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
+
+      - name: Get AKS credentials
+          env:
+            CLUSTER_RESOURCE_GROUP_NAME: ${{ secrets.CLUSTER_RESOURCE_GROUP_NAME }}
+            CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
+      - run: |
+            az aks get-credentials \
+            --resource-group $CLUSTER_RESOURCE_GROUP_NAME \
+            --name $CLUSTER_NAME \
+            --overwrite-existing
+      - name: Deploy application
+          env:
+            ACR_NAME: ${{ secrets.ACR_NAME }}
+      - run: make deploy
