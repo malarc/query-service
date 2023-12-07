@@ -7,8 +7,11 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build:permissions:
+    contents: read
+    id-token: write
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
 
