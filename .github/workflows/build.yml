@@ -23,16 +23,16 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
-#      - name: Build and Push Docker Image
-      - run: |
-         docker build -t acrapmmpoc.azurecr.io/query-service:latest .
-#            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-         docker push acrapmmpoc.azurecr.io/query-service:latest
-
-
+##      - name: Build and Push Docker Image
 #      - run: |
-#          docker build . -t acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
-#          docker push acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
+#         docker build -t acrapmmpoc.azurecr.io/query-service:latest .
+##            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+#         docker push acrapmmpoc.azurecr.io/query-service:latest
+
+
+      - run: |
+          docker build . -t acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
+          docker push acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
 
       - name: Azure login
         uses: azure/login@v1
