@@ -29,16 +29,16 @@ jobs:
 
       - name: Azure login
         uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS}}
-          enable-AzPSSession: true
+#        with:
+#          creds: ${{ secrets.AZURE_CREDENTIALS}}
+#          enable-AzPSSession: true
       #            --resource-group $CLUSTER_RESOURCE_GROUP_NAME \
 #      - name: Azure login
 #        uses: azure/login@v1
-#        with:
-#          client-id: ${{ secrets.SERVICE_PRINCIPAL_APP_ID }}
-#          tenant-id: ${{ secrets.SERVICE_PRINCIPAL_TENANT }}
-#          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        with:
+          client-id: ${{ secrets.SERVICE_PRINCIPAL_APP_ID }}
+          tenant-id: ${{ secrets.SERVICE_PRINCIPAL_TENANT }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 #          enable-AzPSSession: true
 #      - uses: azure/setup-kubectl@v3
 #        name: Setup kubectl
