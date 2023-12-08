@@ -32,6 +32,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS}}
           enable-AzPSSession: true
+
       #            --resource-group $CLUSTER_RESOURCE_GROUP_NAME \
 #      - name: Azure login
 #        uses: azure/login@v1
