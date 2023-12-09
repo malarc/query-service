@@ -1,20 +1,43 @@
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: spring-boot-app
+#spec:
+#  replicas: 3
+#  selector:
+#    matchLabels:
+#      app: spring-boot-app
+#  template:
+#    metadata:
+#      labels:
+#        app: spring-boot-app
+#    spec:
+#      containers:
+#        - name: spring-boot-container
+#          image: acrapmmpoc.azurecr.io/query-service:latest
+#          ports:
+#            - containerPort: 8080
+#          imagePullPolicy: IfNotPresent
+
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-boot-app
+  name: nginx0-deployment
+  labels:
+    app: nginx0-deployment
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: spring-boot-app
+      app: nginx0
   template:
     metadata:
       labels:
-        app: spring-boot-app
+        app: nginx0
     spec:
       containers:
-        - name: spring-boot-container
-          image: acrapmmpoc.azurecr.io/query-service:latest
+        - name: nginx
+          image: acrapmmpoc.azurecr.io.azurecr.io/nginx:v1
           ports:
-            - containerPort: 8080
-          imagePullPolicy: IfNotPresent
+            - containerPort: 80
