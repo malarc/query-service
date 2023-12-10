@@ -19,9 +19,9 @@ jobs:
           service_principal_password: ${{ secrets.service_principal_password }}
           tenant: ${{ secrets.tenant }}
           registry: ${{ secrets.registry }}
-          repository: query-service
-          image:  Query-service
-          folder: Query-service
+          repository: nginx
+          image:  query-service
+          folder: query-service
           branch: main
           tag: ${{ github.sha }}
       - name: Azure login
