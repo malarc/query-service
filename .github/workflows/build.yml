@@ -45,6 +45,6 @@ jobs:
           namespace: 'default'
           manifests: |
             kubernetes-manifests/
-          images: 'acrapmmpoc.azurecr.io/query-service:${{ github.sha }}'
+          images: 'query-service:${{ github.sha }}'
 
           pull-images: false
