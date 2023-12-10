@@ -16,11 +16,12 @@ jobs:
           login-server: acrapmmpoc.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
+
       - run: |
 #          docker build . -t acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
 #          docker push acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
-           docker build . -t acrapmmpoc.azurecr.io/nginx:v1
-           docker push acrapmmpoc.azurecr.io/nginx:v1
+          docker build . -t acrapmmpoc.azurecr.io/nginx:v1
+          docker push acrapmmpoc.azurecr.io/nginx:v1
 
       - name: Azure login
         id: login
