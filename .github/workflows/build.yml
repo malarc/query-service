@@ -29,9 +29,10 @@ jobs:
 #          docker login -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
 #          docker push acrapmmpoc.azurecr.io/query-service:latest
 
-     - run: |
+      - run: |
           docker build . -t acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
           docker push acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
+
       - name: Azure login
         uses: azure/login@v1
         with:
