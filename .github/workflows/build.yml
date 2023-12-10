@@ -31,8 +31,8 @@ jobs:
 
 
       - run: |
-          docker build . -t acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
-          docker push acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
+          docker build . -t acrapmmpoc.azurecr.io/nginx:${{ github.sha }}
+          docker push acrapmmpoc.azurecr.io/nginx:${{ github.sha }}
       - name: Azure login
         uses: azure/login@v1
         with:
