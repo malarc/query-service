@@ -43,7 +43,7 @@ jobs:
         with:
           namespace: 'default'
           manifests: |
-            kubernetes-manifests/
+            kubernetes-manifests/Deployment.yaml
           images: 'query-service:${{ github.sha }}'
 
           pull-images: false
