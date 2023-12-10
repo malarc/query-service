@@ -39,11 +39,12 @@ jobs:
         uses: azure/setup-kubectl@v3
       - name: Deploy to AKS
         id: deploy-aks
-        uses: Azure/k8s-deploy@v4
-        with:
-          namespace: 'default'
-          manifests: |
-            kubernetes-manifests/
-          images: 'query-service:${{ github.sha }}'
-
-          pull-images: false
+        run: kubectl apply -f kubernetes-manifests/
+#        uses: Azure/k8s-deploy@v4
+#        with:
+#          namespace: 'default'
+#          manifests: |
+#            kubernetes-manifests/
+#          images: 'query-service:${{ github.sha }}'
+#
+#          pull-images: false
