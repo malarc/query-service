@@ -9,21 +9,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source code
-        uses: actions/checkout@v3
-      - name: ACR build
-        id: build-push-acr
-        uses: azure/acr-build@v1
+      - uses: actions/checkout@v2
+
+      - uses: azure/docker-login@v1
         with:
-          service_principal: ${{ secrets.service_principal }}
-          service_principal_password: ${{ secrets.service_principal_password }}
-          tenant: ${{ secrets.tenant }}
-          registry: ${{ secrets.registry }}
-          repository: nginx
-          image:  query-service
-          folder: query-service
-          branch: main
-          tag: ${{ github.sha }}
+          login-server: acrapmmpoc.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      ##      - name: Build and Push Docker Image
+      #      - run: |
+      #          docker build -t acrapmmpoc.azurecr.io/query-service:latest .
+      #          docker login -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
+      #          docker push acrapmmpoc.azurecr.io/query-service:latest
+
+      - run: |
+        #          docker build . -t acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
+               docker build . -t acrapmmpoc.azurecr.io/nginx:v1
+               docker push acrapmmpoc.azurecr.io/nginx:v1
+      #          docker push acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
       - name: Azure login
         id: login
         uses: azure/login@v1.4.3
