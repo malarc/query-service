@@ -33,6 +33,7 @@ jobs:
       - name: Deploy to AKS
         run: kubectl apply -f kubernetes-manifests/
 
+
 #      - name: Set AKS context
 #        id: set-context
 #        uses: azure/aks-set-context@v3
