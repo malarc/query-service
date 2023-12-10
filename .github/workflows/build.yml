@@ -25,8 +25,8 @@ jobs:
 
       - run: |
         #          docker build . -t acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
-               docker build . -t acrapmmpoc.azurecr.io/nginx:v1
-               docker push acrapmmpoc.azurecr.io/nginx:v1
+             docker build . -t acrapmmpoc.azurecr.io/nginx:v1
+             docker push acrapmmpoc.azurecr.io/nginx:v1
       #          docker push acrapmmpoc.azurecr.io/appdb:${{ github.sha }}
 
       - name: Azure login
