@@ -28,22 +28,27 @@ jobs:
         uses: azure/login@v1.4.3
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS}}
-      - name: Set AKS context
-        id: set-context
-        uses: azure/aks-set-context@v3
-        with:
-          resource-group: '${{ secrets.CLUSTER_RESOURCE_GROUP_NAME}}'
-          cluster-name: '${{ secrets.CLUSTER_NAME}}'
-      - name: Setup kubectl
-        id: install-kubectl
-        uses: azure/setup-kubectl@v3
+      - name: Set the AKS context
+        run: az aks get-credentials --resource-group ${{ secrets.CLUSTER_RESOURCE_GROUP_NAME}} --name ${{ secrets.CLUSTER_NAME}}
       - name: Deploy to AKS
-        id: deploy-aks
-        uses: Azure/k8s-deploy@v4
-        with:
-          namespace: 'default'
-          manifests: |
-            kubernetes-manifests/Deployment.yaml
-          images: 'query-service:${{ github.sha }}'
+        run: kubectl apply -f kubernetes-manifests/
 
-          pull-images: false
+#      - name: Set AKS context
+#        id: set-context
+#        uses: azure/aks-set-context@v3
+#        with:
+#          resource-group: '${{ secrets.CLUSTER_RESOURCE_GROUP_NAME}}'
+#          cluster-name: '${{ secrets.CLUSTER_NAME}}'
+#      - name: Setup kubectl
+#        id: install-kubectl
+#        uses: azure/setup-kubectl@v3
+#      - name: Deploy to AKS
+#        id: deploy-aks
+#        uses: Azure/k8s-deploy@v4
+#        with:
+#          namespace: 'default'
+#          manifests: |
+#            kubernetes-manifests/
+#          images: 'query-service:${{ github.sha }}'
+#
+#          pull-images: false
