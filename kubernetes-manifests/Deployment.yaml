@@ -38,6 +38,6 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: acrapmmpoc.azurecr.io/nginx:v1
+          image: acrapmmpoc.azurecr.io/nginx:latest
           ports:
             - containerPort: 80
