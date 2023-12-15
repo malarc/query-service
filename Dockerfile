@@ -22,7 +22,7 @@
 
 
 # Use the official OpenJDK 11 image as a base image
-FROM openjdk:11-jre-slim
+FROM openjdk:11-jdk-oracle
 
 # Set the working directory in the container
 WORKDIR /app
