@@ -29,9 +29,9 @@ COPY . /home/app
 RUN mvn clean package -DskipTests=true
 
 #Package
-FROM openjdk:17-alpine
+FROM openjdk:11-jdk-oracle
 
-copy --from=build /home/app/target/*.jar /usr/local/lib/query-service.jar
+copy --from=build /home/app/target/query-service-0.0.1-SNAPSHOT.jar /usr/local/lib/query-service.jar
 EXPOSE 8080
 
 ENTRYPOINT ["java","-jar","/usr/local/lib/query-service.jar"]
