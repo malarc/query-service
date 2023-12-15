@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: nginx0-deployment
-          image: locationpocregistry.azurecr.io/nginx:v1
+          image: locationpocregistry.azurecr.io/nginx0-deployment:v1
           ports:
             - containerPort: 8080
