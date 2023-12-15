@@ -39,4 +39,4 @@ spec:
         - name: query-service
           image: locationpocregistry.azurecr.io/query-service:v1
           ports:
-            - containerPort: 8080
+            - containerPort: 8085
