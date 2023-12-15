@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: query-service
+  name: nginx0-deployment
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: query-service.domain.com
+    - host: nginx0-deployment.domain.com
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: query-service
+                name: nginx0-deployment
                 port:
                   number: 80

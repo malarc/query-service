@@ -8,14 +8,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx0
+      app: nginx0-deployment
   template:
     metadata:
       labels:
-        app: nginx0
+        app: nginx0-deployment
     spec:
       containers:
-        - name: nginx
+        - name: nginx0-deployment
           image: locationpocregistry.azurecr.io/nginx:v1
           ports:
             - containerPort: 8080
