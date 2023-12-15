@@ -4,7 +4,7 @@ metadata:
   name: query-service
 spec:
   selector:
-    app: nginx0
+    app: nginx0-deployment
   ports:
     - protocol: TCP
       port: 80
