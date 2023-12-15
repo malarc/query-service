@@ -4,22 +4,9 @@ metadata:
   name: query-service
 spec:
   selector:
-    app: nginx0-deployment
+    app: nginx0
   ports:
     - protocol: TCP
       port: 80
       targetPort: 8080
   type: LoadBalancer
-
-#apiVersion: v1
-#kind: Service
-#metadata:
-#  name: query-lookup-service
-#spec:
-#  selector:
-#    app: query-service
-#  ports:
-#    - protocol: TCP
-#      port: 80
-#      targetPort: 8085
-#  type: LoadBalancer

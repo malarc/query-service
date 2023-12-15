@@ -14,9 +14,9 @@ RUN mvn -f /home/app/pom.xml clean package
 # # # # Package stage
 # # # #
 FROM openjdk:11-jdk-oracle
-COPY --from=build /home/app/service/target/*.jar /usr/local/lib/nginx0-deployment.jar
+COPY --from=build /home/app/service/target/*.jar /usr/local/lib/nginx0.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/usr/local/lib/nginx0-deployment.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/lib/nginx0.jar"]
 
 
 
