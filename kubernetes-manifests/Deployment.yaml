@@ -1,42 +1,42 @@
-#apiVersion: apps/v1
-#kind: Deployment
-#metadata:
-#  name: nginx0-deployment
-#  labels:
-#    app: nginx0-deployment
-#spec:
-#  replicas: 2
-#  selector:
-#    matchLabels:
-#      app: nginx0-deployment
-#  template:
-#    metadata:
-#      labels:
-#        app: nginx0-deployment
-#    spec:
-#      containers:
-#        - name: nginx0-deployment
-#          image: locationpocregistry.azurecr.io/nginx0-deployment:v1
-#          ports:
-#            - containerPort: 8080
-
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: query-service
+  name: nginx0-deployment
+  labels:
+    app: nginx0-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: query-service
+      app: nginx0-deployment
   template:
     metadata:
       labels:
-        app: query-service
+        app: nginx0-deployment
     spec:
       containers:
-        - name: query-service
-          image: locationpocregistry.azurecr.io/query-service:v1
+        - name: nginx0-deployment
+          image: locationpocregistry.azurecr.io/nginx0-deployment:v1
           ports:
-            - containerPort: 8085
+            - containerPort: 8080
+
+
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: query-service
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: query-service
+#  template:
+#    metadata:
+#      labels:
+#        app: query-service
+#    spec:
+#      containers:
+#        - name: query-service
+#          image: locationpocregistry.azurecr.io/query-service:v1
+#          ports:
+#            - containerPort: 8085
